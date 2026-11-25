@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #1A0205;
+    color: #240B0E;
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: 'Tiro Bangla', 'Noto Serif Bengali', 'Hind Siliguri', serif;
+    overflow-x: clip;
+  }
+}
+
+/* ── Typography ──────────────────────────── */
+.font-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-bengali {
+  font-family: 'Tiro Bangla', 'Noto Serif Bengali', serif;
+}
+
+.font-bengali-sans {
+  font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+}
+
+/* ── Rich Textured Backgrounds (Red, Yellow, Ivory-Gold, Green) ─── */
+.bg-kanch-paper {
+  background-color: #FAF0DC;
+  background-image:
+    radial-gradient(rgba(179, 18, 27, 0.05) 1px, transparent 0),
+    radial-gradient(rgba(200, 155, 60, 0.09) 1px, transparent 0);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+.bg-sindoor-velvet {
+  background-color: #6B0A11;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 227, 154, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 80% 15%, rgba(243, 156, 18, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at top right, #B3121B 0%, #7E0D15 48%, #3F050A 100%);
+}
+
+.bg-jamdani-emerald {
+  background-color: #133128;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 227, 154, 0.025) 0px,
+      rgba(255, 227, 154, 0.025) 2px,
+      transparent 2px,
+      transparent 16px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 227, 154, 0.025) 0px,
+      rgba(255, 227, 154, 0.025) 2px,
+      transparent 2px,
+      transparent 16px
+    ),
+    radial-gradient(circle at top left, #245746 0%, #173B2E 52%, #0B2019 100%);
+}
+
+.bg-holud-gold {
+  background-color: #FCE296;
+  background-image:
+    radial-gradient(circle at 18% 25%, rgba(243, 156, 18, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(179, 18, 27, 0.09) 0%, transparent 40%),
+    linear-gradient(135deg, #FFF5CF 0%, #FDE68A 42%, #FCD34D 80%, #F59E0B 100%);
+}
+
+/* ── Ken Burns ───────────────────────────── */
+@keyframes kenBurns {
+  0%   { transform: scale(1)    translate3d(0, 0, 0); }
+  50%  { transform: scale(1.06) translate3d(-0.8%, -0.8%, 0); }
+  100% { transform: scale(1.02) translate3d(0.8%, 0.4%, 0); }
+}
+.animate-ken-burns {
+  animation: kenBurns 16s ease-in-out infinite alternate;
+}
+
+/* ── Gold foil shimmer ───────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.text-gold-foil {
+  background: linear-gradient(
+    90deg,
+    #FFE39A 0%, #FFF9E6 28%, #FFD166 55%, #FFF9E6 80%, #FFE39A 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s linear infinite;
+}
+
+/* ── Scrollbar ───────────────────────────── */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #2D060A; }
+::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #F39C12, #B3121B); border-radius: 999px; }
+
+/* ── Spin slow ───────────────────────────── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes spin-reverse-slow {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+.animate-spin-slow         { animation: spin-slow         34s linear infinite; }
+.animate-spin-reverse-slow { animation: spin-reverse-slow 26s linear infinite; }
+
+/* ── Pradip flicker ──────────────────────── */
+@keyframes flicker {
+  0%,100% { opacity:1; transform:scaleY(1) scaleX(1); }
+  25%     { opacity:.86; transform:scaleY(0.94) scaleX(1.03); }
+  50%     { opacity:.98; transform:scaleY(1.06) scaleX(0.97); }
+  75%     { opacity:.9; transform:scaleY(0.98) scaleX(1.02); }
+}
+.animate-flicker {
+  transform-origin: center bottom;
+  animation: flicker 1.8s ease-in-out infinite;
+}
+
+/* ── Shimmer overlay for page open ─────── */
+@keyframes shimmer-reveal {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.shimmer-bg {
+  background: linear-gradient(105deg, transparent 0%, rgba(255,227,154,0.22) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer-reveal 2.8s ease-in-out;
+}
