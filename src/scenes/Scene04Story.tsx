@@ -33,7 +33,7 @@ function buildThreadPaths(origin: { x: number; y: number }, knots: { x: number; 
       return `M${a.x} ${a.y} C${a.x - 30} ${a.y + dy}, ${b.x - 30} ${b.y - dy}, ${b.x} ${b.y}`;
     }
     const dx = (b.x - a.x) / 3;
-    return `M${a.x} ${a.y} C${a.x + dx} ${a.y + 22}, ${b.x - dx} ${b.y + 22}, ${b.x} ${b.y}`;
+    return `M${a.x} ${a.y} C${a.x + dx} ${a.y + 14}, ${b.x - dx} ${b.y + 14}, ${b.x} ${b.y}`;
   };
 
   return [first, segment(knots[0], knots[1]), segment(knots[1], knots[2])];

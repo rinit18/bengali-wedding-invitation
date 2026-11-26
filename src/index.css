@@ -1161,7 +1161,7 @@ button {
   position: absolute;
   left: 20px;
   right: 20px;
-  top: 54px;
+  top: 66px;
   text-align: center;
 }
 
@@ -1174,7 +1174,8 @@ button {
   font-weight: 400;
   font-size: clamp(24px, 6.2vw, 34px);
   color: var(--sindoor);
-  line-height: 1.2;
+  line-height: 1.25;
+  padding-top: 4px;
 }
 
 .st-beat-say p {
